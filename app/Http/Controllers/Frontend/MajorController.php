@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Major;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\FieldOfWork;
+use App\Models\LearnedMaterial;
 use App\Repositories\MajorRepository;
 
 class MajorController extends Controller
@@ -30,11 +32,15 @@ class MajorController extends Controller
     public function show(Major $major)
     {
         $majors = Major::all();
-        // $major = $this->majorRepository->findByColumn($major->id, 'id');
         $major = Major::where('id', $major->id)->first();
-        return view('frontend.major.major-section', [
+        $learnedMaterials = LearnedMaterial::where('major_id', $major->id)->get();
+        $fieldOfWorks = FieldOfWork::where('major_id', $major->id)->get();
+
+        return view('frontend.major.index', [
             'major'=> $major,
-            'majors' => $majors
+            'majors' => $majors,
+            'learnedMaterials' => $learnedMaterials,
+            'fieldOfWorks' => $fieldOfWorks
         ]);
     }
 }

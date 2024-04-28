@@ -80,6 +80,13 @@
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                                                 <li>
                                                     <a
+                                                        href="{{ route('admin.major.detail', $major) }}"
+                                                        class="btn btn-sm btn-link w-100 text-start"
+                                                        >Detail</a
+                                                    >
+                                                </li>
+                                                <li>
+                                                    <a
                                                         href="{{ route('admin.major.edit', $major) }}"
                                                         class="btn btn-sm btn-link w-100 text-start"
                                                         >Edit</a

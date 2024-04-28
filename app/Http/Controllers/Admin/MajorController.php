@@ -14,19 +14,29 @@ use App\Repositories\MajorRepository;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\MajorStoreRequest;
 use App\Http\Requests\MajorUpdateRequest;
+use App\Models\FieldOfWork;
+use App\Models\LearnedMaterial;
+use App\Repositories\FieldOfWorkRepository;
+use App\Repositories\LearnedMaterialRepository;
 
 class MajorController extends Controller
 {
     private $majorRepository;
     private $fileRepository;
+    private $learnedMaterialRepository;
+    private $fieldOfWorkRepository;
 
     public function __construct(
         MajorRepository $majorRepository,
-        FileRepository $fileRepository
+        FileRepository $fileRepository,
+        LearnedMaterialRepository $learnedMaterialRepository,
+        FieldOfWorkRepository $fieldOfWorkRepository,
     )
     {
         $this->majorRepository = $majorRepository;
         $this->fileRepository = $fileRepository;
+        $this->learnedMaterialRepository = $learnedMaterialRepository;
+        $this->fieldOfWorkRepository = $fieldOfWorkRepository;
     }
 
     public function index(Request $request)
@@ -198,6 +208,134 @@ class MajorController extends Controller
 
         return redirect()->route('admin.major.index')->with([
             'success', 'Major has been successfully deleted.'
+        ]);
+    }
+
+    public function show(Major $major)
+    {
+        $fieldOfWork = FieldOfWork::all();
+        $learnedMaterial = LearnedMaterial::all();
+
+        return view('admin.major.detail', [
+            'major' => $major,
+            'fieldOfWork' => $fieldOfWork,
+            'learnedMaterial' => $learnedMaterial
+        ]);
+    }
+
+    public function createLearnedMaterial(Major $major)
+    {
+        return view('admin.major.learned-material', [
+            'major' => $major,
+        ]);
+    }
+    
+    public function storeLearnedMaterial(Request $request, Major $major, LearnedMaterial $learnedMaterial)
+    {
+        $request->merge([
+            'major_id' => $major->id
+        ]);
+
+        $data = $request->only([
+            'major_id', 'title'
+        ]);
+
+        try {
+            DB::beginTransaction();
+
+            $learnedMaterial = new LearnedMaterial($data);
+            $learnedMaterial = $this->learnedMaterialRepository->store($learnedMaterial);
+            
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return redirect()->back()->withErrors([
+                'errors', $th->getMessage()
+            ]);
+        }
+        
+        return redirect()->route('admin.major.detail', $major)->with([
+            'success', 'New Learned Material successfully created.'
+        ]);
+    }
+
+    public function createFieldOfWork(Major $major)
+    {
+        return view('admin.major.field-of-work', [
+            'major' => $major
+        ]);
+    }
+
+    public function storeFieldOfWork(Request $request, Major $major, FieldOfWork $fieldOfWork)
+    {
+        $request->merge([
+            'major_id' => $major->id
+        ]);
+
+        $data = $request->only([
+            'major_id', 'title'
+        ]);
+
+        try {
+            DB::beginTransaction();
+
+            $fieldOfWork = new FieldOfWork($data);
+            $fieldOfWork = $this->fieldOfWorkRepository->store($fieldOfWork);
+            
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return redirect()->back()->withErrors([
+                'errors', $th->getMessage()
+            ]);
+        }
+        
+        return redirect()->route('admin.major.detail', $major)->with([
+            'success', 'New Field of Work successfully created.'
+        ]);
+    }
+
+    public function deleteLearnedMaterial(Major $major, LearnedMaterial $learnedMaterial)
+    {
+        try {
+            DB::beginTransaction();
+
+            $learnedMaterial->delete();
+            
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return redirect()->back()->withErrors([
+                'errors', $th->getMessage()
+            ]);
+        }
+        
+        return redirect()->route('admin.major.detail', $major)->with([    
+            'success', 'Learned Material successfully deleted.'
+        ]);
+    }
+
+    public function deleteFieldOfWork(Major $major, FieldOfWork $fieldOfWork)
+    {
+        try {
+            DB::beginTransaction();
+
+            $fieldOfWork->delete();
+            
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return redirect()->back()->withErrors([
+                'errors', $th->getMessage()
+            ]);
+        }
+        
+        return redirect()->route('admin.major.detail', $major)->with([
+            'success', 'Field of Work successfully deleted.'
         ]);
     }
 }
