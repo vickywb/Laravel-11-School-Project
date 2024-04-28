@@ -12,8 +12,8 @@ class HomeController extends Controller
 {
    public function index()
    {  
-      $articles = Article::latest('id')->paginate(3);
-      $teachers = Teacher::orderBy('name', 'asc')->paginate(5);
+      $articles = Article::latest('id')->paginate(2);
+      $teachers = Teacher::orderBy('name', 'asc')->paginate(4);
       $majors = Major::orderBy('title', 'asc')->get();
 
       return view('home', [

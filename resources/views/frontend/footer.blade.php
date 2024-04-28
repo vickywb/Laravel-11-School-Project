@@ -4,7 +4,62 @@
     <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
-       
+            <div class="section-title"><h2>Galeri Sekolah</h2></div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="gallery-area">
+                    <img src="{{ asset('noimage/no-image.png') }}" alt="gallery-img" class="gallery-img">
+                    <div class="gallery-title text-center">
+                        <p class="mt-3">Foto 3</p>
+                        <span></span>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="gallery-area">
+                    <img src="{{ asset('noimage/no-image.png') }}" alt="gallery-img" class="gallery-img">
+                    <div class="gallery-title text-center">
+                        <p class="mt-3">Foto 3</p>
+                        <span></span>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="gallery-area">
+                    <img src="{{ asset('noimage/no-image.png') }}" alt="gallery-img" class="gallery-img">
+                    <div class="gallery-title text-center">
+                        <p class="mt-3">Foto 3</p>
+                        <span></span>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="gallery-area">
+                    <img src="{{ asset('noimage/no-image.png') }}" alt="gallery-img" class="gallery-img">
+                    <div class="gallery-title text-center">
+                        <p class="mt-3">Foto 3</p>
+                        <span></span>
+                    </div>
+                </div>
+              </div>    <div class="col-md-2">
+                <div class="gallery-area">
+                    <img src="{{ asset('noimage/no-image.png') }}" alt="gallery-img" class="gallery-img">
+                    <div class="gallery-title text-center">
+                        <p class="mt-3">Foto 3</p>
+                        <span></span>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="gallery-area">
+                    <img src="{{ asset('noimage/no-image.png') }}" alt="gallery-img" class="gallery-img">
+                    <div class="gallery-title text-center">
+                        <p class="mt-3">Foto 3</p>
+                        <span></span>
+                    </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -58,5 +113,4 @@
   </footer>
   
   <!-- End Footer -->
-  <a href="#" class="wa-button"><img src="{{ asset('frontend/img/whatsapp/wa-logo.png') }}" alt=""></a>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
