@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
             MajorSeeder::class,
             TeacherSeeder::class,
             StudentSeeder::class,
+            FieldofWorkSeeder::class,
+            LearnedMaterialSeeder::class,
+            MissionSeeder::class,
+            VisionSeeder::class
         ]);
     }
 }
