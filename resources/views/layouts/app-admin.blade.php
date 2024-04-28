@@ -13,7 +13,7 @@
     
     <div class="row">
         {{-- Sidebar --}}
-        @include('admin.components.sidebar')
+        @include('admin.components.includes.sidebar')
         
         @yield('content')
     </div>

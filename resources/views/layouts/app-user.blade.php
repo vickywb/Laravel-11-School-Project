@@ -23,7 +23,6 @@
         </div>
       </section>
 
-
         @include('frontend.footer')
 
     </div>
