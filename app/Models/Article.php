@@ -30,6 +30,12 @@ class Article extends Model
     {
         return $this->belongsTo(File::class);
     }
+    
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 
     //Accessor
     protected function locationFile(): Attribute

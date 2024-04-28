@@ -56,6 +56,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Name</th>
                                     <th>Nisn</th>
                                     <th>Tempat Lahir</th>
@@ -67,6 +68,7 @@
                             <tbody>
                               @foreach ($students as $student)
                                 <tr>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ Str::ucfirst($student->name) }}</td>
                                     <td>{{ $student->nisn }}</td>
                                     <td>{{ Str::ucfirst($student->place_of_birth) }}</td>

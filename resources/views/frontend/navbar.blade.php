@@ -4,8 +4,8 @@
 
         <div class="logo">
         <h1 class="text-light">
-            <a href="/"><i class="bi bi-magic"></i>
-            <span>Ninestars</span>
+            <a href="/">
+            <span style="font-family: sans-serif">SMK 99</span>
             </a>
         </h1>
         </div>
@@ -15,8 +15,9 @@
             <li><a class="nav-link scrollto active" href="{{ route('home') }}">Home</a></li>
             <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="#">Profile Guru</a></li>
-                  <li><a href="#">Gallery Sekolah</a></li>
+                    <li><a href="{{ route('visimisi') }}">Visi dan Misi</a></li>
+                    <li><a href="{{ route('guru') }}">Profile Guru</a></li>
+                    <li><a href="{{ route('gallery') }}">Gallery Sekolah</a></li>
                 </ul>
             </li>
             <li class="dropdown"><a href="#"><span>Jurusan</span> <i class="bi bi-chevron-down"></i></a>

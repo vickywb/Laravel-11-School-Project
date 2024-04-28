@@ -26,4 +26,14 @@ class Major extends Model
     {
         return 'slug';
     }
+
+    public function learnedMaterial()
+    {
+        return $this->hasMany(LearnedMaterial::class);
+    }
+
+    public function fieldOfWork()
+    {
+        return $this->hasMany(FieldOfWork::class);
+    }
 }

@@ -12,7 +12,7 @@
     ]
 ])
 
-@section('title', 'Student Registration')
+@section('title', 'Sekolah Menengah Kejuruan')
 @section('content')
 
 <div class="container">
