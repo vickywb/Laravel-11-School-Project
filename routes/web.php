@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CategoryImageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\MajorController;
 use App\Http\Controllers\Admin\MissionController;
 use App\Http\Controllers\Admin\StudentController;
@@ -24,8 +26,8 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 Route::controller(StudentRegisterController::class)->group(function () {
-   Route::get('/pendaftaran-murid-baru', 'create')->name('student.register');
-   Route::post('/pendaftaran-murid-baru/store', 'store')->name('student.doRegister');
+   Route::get('/pendaftaran-murid-baru', 'create')->name('form.pendaftaran');
+   Route::post('/pendaftaran-murid-baru/store', 'store')->name('pendaftaran.murid');
 });
 
 Route::controller(FrontendMajorController::class)->group(function () {
@@ -149,6 +151,29 @@ Route::prefix('admin')->middleware(['role:superadmin'])->group(function () {
         Route::get('/missions/edit/{mission}', 'edit')->name('admin.mission.edit');
         Route::patch('/missions/update/{mission}', 'update')->name('admin.mission.update');
         Route::delete('/missions/delete/{mission}', 'destroy')->name('admin.mission.delete');
+    });
+
+    //Category Images
+    Route::controller(CategoryImageController::class)->group(function () {
+        Route::get('/category-images', 'index')->name('admin.categoryImage.index');
+        Route::get('/category-images/create', 'create')->name('admin.categoryImage.create');
+        Route::post('/category-images/store', 'store')->name('admin.categoryImage.store');
+        Route::get('/category-images/edit/{categoryImage}', 'edit')->name('admin.categoryImage.edit');
+        Route::patch('/category-images/update/{categoryImage}', 'update')->name('admin.categoryImage.update');
+        Route::delete('/category-images/delete/{categoryImage}', 'destroy')->name('admin.categoryImage.delete');
+    });
+
+    //Galleries
+    Route::controller(AdminGalleryController::class)->group(function () {
+        Route::get('/galleries', 'index')->name('admin.gallery.index');
+        Route::get('/galleries/create', 'create')->name('admin.gallery.create');
+        Route::post('/galleries/store', 'store')->name('admin.gallery.store');
+        Route::get('/galleries/detail/{gallery}', 'show')->name('admin.gallery.detail');
+        Route::get('/galleries/edit/{gallery}', 'edit')->name('admin.gallery.edit');
+        Route::patch('/galleries/update/{gallery}', 'update')->name('admin.gallery.update');
+        Route::delete('/gallereis/delete/{gallery}', 'destroy')->name('admin.gallery.delete');
+        Route::delete('/galleries/{gallery}/delete-image/{galleryFile}', 'deleteImage')->name('admin.gallery.deleteImage');
+        Route::post('/galleries/{gallery}/store-image', 'storeImage')->name('admin.gallery.storeImage');
     });
         
 });
