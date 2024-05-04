@@ -1,6 +1,6 @@
 <div class="col-12 col-lg-3 col-navbar d-none d-xl-block">
     <aside class="sidebar">
-        <a href="#" class="sidebar-logo">
+        <a href="{{ route('admin.dashboard') }}" class="sidebar-logo">
             <div class="d-flex justify-content-start align-items-center">
                 <img class="dashboard-logo" src="{{ asset('backend/assets/img/global/logo.svg') }}" alt="" />
                 <span>Admin Panel</span>
