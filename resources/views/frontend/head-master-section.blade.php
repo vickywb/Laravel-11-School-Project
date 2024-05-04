@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-4">
           <div class="image">
-            <img src="{{ asset('frontend/img/team/team-1.jpg') }}" alt="headmaster-img" class="headmaster-img">
+            <img src="{{ asset('frontend/img/team/team-4-removebg.png') }}" alt="headmaster-img" class="headmaster-img">
           </div>
         </div>
       </div>
