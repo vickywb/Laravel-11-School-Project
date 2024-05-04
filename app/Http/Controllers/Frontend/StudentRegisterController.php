@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StudentStoreRequest;
 use App\Models\Major;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Repositories\StudentRepository;
+use App\Http\Requests\StudentStoreRequest;
 
 class StudentRegisterController extends Controller
-{
+{   
+    private $studentRepository;
+
+    public function __construct(StudentRepository $studentRepository)
+    {
+        $this->studentRepository = $studentRepository;
+    }
+
     public function create()
     {
         $majors = Major::all();
