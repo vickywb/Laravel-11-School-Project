@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Admin Dashboard - Article Create')
+@section('title', 'Admin Dashboard - Category Article Create')
 @section('content')
 <div class="col-12 col-xl-9">
     <div class="nav">
@@ -10,7 +10,7 @@
                     <img src="{{ asset('backend/assets/img/global/burger.svg') }}" class="mb-2" alt="icon" />
                 </button>
                 <h2 class="nav-title">
-                    <a href="#">Article Form</a>
+                    <a href="#">Category Article Form</a>
                 </h2>
             </div>
         </div>
@@ -19,7 +19,7 @@
     <div class="content">
         <div class="row">
             <div class="col-12">
-                <h2 class="content-title mb-4">Form Article</h2>
+                <h2 class="content-title mb-4">Form Category Article</h2>
             </div>
 
             @include('components._messages')
