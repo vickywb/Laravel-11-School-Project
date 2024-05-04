@@ -37,7 +37,7 @@ class File extends Model
         return $this->hasMany(Teacher::class);
     }
     
-    public function galleries()
+    public function galleryFiles()
     {
         return $this->hasMany(GalleryFile::class);
     }

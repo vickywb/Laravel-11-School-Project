@@ -25,8 +25,14 @@ class Gallery extends Model
         return $this->belongsTo(CategoryImage::class);
     }
 
-    public function galleries()
+    public function galleryFiles()
     {
         return $this->hasMany(GalleryFile::class);
+    }
+
+    //Accessor
+    public function getFirstImageAttribute()
+    {
+        return $this->galleryFiles()->first();
     }
 }

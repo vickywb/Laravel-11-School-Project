@@ -27,6 +27,11 @@ class GalleryFile extends Model
         return $this->belongsTo(File::class);
     }
 
+    public function categoryImage()
+    {
+        return $this->belongsTo(CategoryImage::class);
+    }
+
     //Accessor
     protected function locationFile(): Attribute
     {
