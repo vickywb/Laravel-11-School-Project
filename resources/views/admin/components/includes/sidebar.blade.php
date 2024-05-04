@@ -31,7 +31,7 @@
         </a>
 
         <a href="{{ route('admin.major.index') }}" class="sidebar-item {{ (request()->is('admin/majors*')) ? 'active' : '' }}">
-            <img src="{{ asset('backend/assets/img/global/person-fill-gear.svg') }}" width="18" height="18" alt="icon" class="me-3" />
+            <img src="{{ asset('backend/assets/img/global/mortarboard.svg') }}" width="18" height="18" alt="icon" class="me-3" />
             <span>Majors</span>
         </a>
 
@@ -48,14 +48,20 @@
 
         
         <a href="{{ route('admin.visimisi.index') }}" class="sidebar-item {{ (request()->is('admin/vision-and-missions*')) ? 'active' : '' }}">
-            <img src="{{ asset('backend/assets/img/global/journals.svg') }}" width="18" height="18" alt="icon" class="me-3" />
+            <img src="{{ asset('backend/assets/img/global/book.svg') }}" width="18" height="18" alt="icon" class="me-3" />
             <span>Vision and Mission</span>
         </a>
 
         
-        <a href="#" class="sidebar-item {{ (request()->is('admin/change-passwords*')) ? 'active' : '' }}">
-            <img src="{{ asset('backend/assets/img/global/lock.svg') }}" width="18" height="18" alt="icon" class="me-3" />
-            <span>Change Password</span>
+        <a href="{{ route('admin.categoryImage.index') }}" class="sidebar-item {{ (request()->is('admin/category-images*')) ? 'active' : '' }}">
+            <img src="{{ asset('backend/assets/img/global/list-check.svg') }}" width="18" height="18" alt="icon" class="me-3" />
+            <span>Category Images</span>
+        </a>
+
+
+        <a href="{{ route('admin.gallery.index') }}" class="sidebar-item {{ (request()->is('admin/galleries*')) ? 'active' : '' }}">
+            <img src="{{ asset('backend/assets/img/global/files.svg') }}" width="18" height="18" alt="icon" class="me-3" />
+            <span>Galleries</span>
         </a>
 
         <a href="{{ route('admin.logout') }}" class="sidebar-item">
