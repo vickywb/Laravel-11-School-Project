@@ -119,7 +119,7 @@ class MajorController extends Controller
             ->doesntHave('articles')
             ->doesntHave('majors')
             ->doesntHave('teachers')
-            ->doesntHave('galleries')
+            ->doesntHave('galleryFiles')
             ->get();
 
         

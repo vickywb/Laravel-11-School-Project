@@ -123,7 +123,7 @@ class ArticleController extends Controller
             ->doesntHave('articles')
             ->doesntHave('majors')
             ->doesntHave('teachers')
-            ->doesntHave('galleries')
+            ->doesntHave('galleryFiles')
             ->get();
 
         $request->merge([
