@@ -17,10 +17,10 @@ class MajorRepository
     {
         $majors = $this->model
             ->when(!empty($params['order']), function ($query) use ($params) {
-                $query->orderByRaw($params['order']);
+                return $query->orderByRaw($params['order']);
             })
             ->when(!empty($params['search']['title']), function ($query) use ($params) {
-                $query->where('title', 'like', '%'. $params['search']['title'] .'%');
+                return $query->where('title', 'like', '%'. $params['search']['title'] .'%');
             });
         
         if (!empty($params['pagination'])) {

@@ -17,7 +17,7 @@ class MissionRepository
     {
         $missions = $this->model
             ->when(!empty($params['order']), function ($query) use ($params) {
-                $query->orderByRaw($params['order']);
+                return $query->orderByRaw($params['order']);
             });
         
         if (!empty($params['pagination'])) {

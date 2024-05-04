@@ -17,10 +17,10 @@ class StudentRepository
     {
         $students = $this->model
             ->when(!empty($params['order']), function ($query) use ($params) {
-                $query->orderByRaw($params['order']);
+                return $query->orderByRaw($params['order']);
             })
             ->when(!empty($params['search']['name']), function ($query) use ($params) {
-                $query->where('name', 'like', '%'. $params['search']['name'] .'%');
+                return $query->where('name', 'like', '%'. $params['search']['name'] .'%');
             });
         
         if (!empty($params['pagination'])) {
