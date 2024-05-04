@@ -27,7 +27,7 @@
                     @endforeach
                 </ul>
             </li>
-            <li><a class="nav-link scrollto" href="{{ route('student.register') }}">Pendaftaran</a></li>
+            <li><a class="nav-link scrollto" href="{{ route('form.pendaftaran') }}">Pendaftaran</a></li>
             <li><a class="nav-link scrollto" href="{{ route('berita') }}">Berita</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

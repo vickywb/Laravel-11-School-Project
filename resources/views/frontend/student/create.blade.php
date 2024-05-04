@@ -4,7 +4,7 @@
     'breadcrumbs' => [
         [
             'title' => 'Pendaftaran',
-            'url' => route('student.register')
+            'url' => route('form.pendaftaran')
         ],
         [
             'title' => 'Pendaftaran Murid Baru',
@@ -24,7 +24,7 @@
         @include('components._messages')
 
         <div class="col-12 statistics-card">
-            <form action="{{ route('admin.student.store') }}" method="post">
+            <form action="{{ route('pendaftaran.murid') }}" method="post">
                     @csrf
                     
                     <div class="row">
