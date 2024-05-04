@@ -119,7 +119,9 @@ class MajorController extends Controller
             ->doesntHave('articles')
             ->doesntHave('majors')
             ->doesntHave('teachers')
+            ->doesntHave('galleries')
             ->get();
+
         
         $request->merge([
             'title' => Str::slug($request->title)

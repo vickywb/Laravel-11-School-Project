@@ -147,7 +147,7 @@ class GalleryController extends Controller
         }
 
         return redirect()->route('admin.gallery.index')->with([
-            'success' => 'Gallery has successfully updated.'
+            'success' => 'Gallery has been successfully updated.'
         ]);
     }
     

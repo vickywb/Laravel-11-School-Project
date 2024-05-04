@@ -77,7 +77,7 @@ class MissionController extends Controller
         }
         
         return redirect()->route('admin.visimisi.index')->with([
-            'success' => 'Mission has successfully updated.'
+            'success' => 'Mission has been successfully updated.'
         ]);
     }
 
@@ -98,7 +98,7 @@ class MissionController extends Controller
         }
         
         return redirect()->route('admin.visimisi.index')->with([
-            'success' => 'Mission has successfully updated.'
+            'success' => 'Mission has been successfully deleted.'
         ]);
     }
 }

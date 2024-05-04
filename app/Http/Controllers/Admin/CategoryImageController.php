@@ -97,7 +97,7 @@ class CategoryImageController extends Controller
         }
 
         return redirect()->route('admin.categoryImage.index')->with([
-            'success' => 'New Category Image has successfully updated.'
+            'success' => 'Category Image has been successfully updated.'
         ]);
     }
 
@@ -118,7 +118,7 @@ class CategoryImageController extends Controller
         }
 
         return redirect()->route('admin.categoryImage.index')->with([
-            'success' => 'New Category Image has successfully deleted.'
+            'success' => 'Category Image has been successfully deleted.'
         ]);
     }
 }

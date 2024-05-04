@@ -77,7 +77,7 @@ class VisionController extends Controller
         }
         
         return redirect()->route('admin.visimisi.index')->with([
-            'success' => 'Vision has successfully updated.'
+            'success' => 'Vision has been successfully updated.'
         ]);
     }
 

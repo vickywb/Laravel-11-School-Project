@@ -96,7 +96,7 @@ class ArticleController extends Controller
         }
 
         return redirect()->route('admin.article.index')->with([
-            'success', 'New Article has successfully created.'
+            'success', 'New Article successfully created.'
         ]);
     }
 
@@ -123,6 +123,7 @@ class ArticleController extends Controller
             ->doesntHave('articles')
             ->doesntHave('majors')
             ->doesntHave('teachers')
+            ->doesntHave('galleries')
             ->get();
 
         $request->merge([
@@ -181,7 +182,7 @@ class ArticleController extends Controller
         }
 
         return redirect()->route('admin.article.index')->with([
-            'success' => 'Article has been updated.'
+            'success' => 'Article has been successfully updated.'
         ]);
     }
 
