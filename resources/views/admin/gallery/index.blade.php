@@ -37,8 +37,8 @@
                                 type="text"
                                 class="form-control border-0 shadow-sm"
                                 name="search_title"
-                                value="{{ request('name') }}"
-                                placeholder="Search Name"
+                                value="{{ request('title') }}"
+                                placeholder="Search Title"
                             />
                         </div>
                         <div class="col-12 col-md-2 d-grid d-md-flex mt-3 mt-md-0">
@@ -67,7 +67,7 @@
                                    <tr>
                                     <td>{{ Str::ucfirst($gallery->title) }}</td>
                                     <td>{{ Str::ucfirst($gallery->categoryImage->title) }}</td>
-                                    <td><img src="{{ $gallery->file->showFile ?? asset('noimage/no-image.png') }}" alt="article-image" width="50px" height="50px"></td>
+                                    <td><img src="{{ $gallery->firstImage->file->showFile ?? asset('noimage/no-image.png') }}" alt="article-image" width="50px" height="50px"></td>
                                     <td width="10%">
                                         <div class="dropdown">
                                             <button

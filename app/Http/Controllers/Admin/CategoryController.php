@@ -20,11 +20,14 @@ class CategoryController extends Controller
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $categories = $this->categoryRepository->get([
             'order' => 'title asc',
-            'pagination' => 5
+            'pagination' => 5,
+            'search' => [
+                'title' => $request->search_title
+            ]
         ]);
 
         return view('admin.category.index', [

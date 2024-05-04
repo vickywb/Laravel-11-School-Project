@@ -37,8 +37,8 @@
                                 type="text"
                                 class="form-control border-0 shadow-sm"
                                 name="search_title"
-                                value="{{ request('name') }}"
-                                placeholder="Search Name"
+                                value="{{ request('title') }}"
+                                placeholder="Search Title"
                             />
                         </div>
                         <div class="col-12 col-md-2 d-grid d-md-flex mt-3 mt-md-0">

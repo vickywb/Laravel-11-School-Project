@@ -31,10 +31,14 @@ class GalleryController extends Controller
         $this->fileRepository = $fileRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $galleries = $this->galleryRepository->get([
-            'pagination' => 5
+            'order' => 'title ASC',
+            'pagination' => 5,
+            'search' => [
+                'title' => $request->search_title
+            ]
         ]);
 
         return view('admin.gallery.index', [
@@ -86,7 +90,7 @@ class GalleryController extends Controller
                     ];
                 }
             }
-            $gallery->galleries()->createMany($listImages);
+            $gallery->galleryFiles()->createMany($listImages);
 
             DB::commit();
         } catch (\Throwable $th) {
@@ -201,7 +205,7 @@ class GalleryController extends Controller
                 }
             }
 
-            $gallery->galleries()->createMany($listImages);
+            $gallery->galleryFiles()->createMany($listImages);
 
             
             DB::commit();

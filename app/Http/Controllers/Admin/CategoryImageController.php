@@ -18,10 +18,14 @@ class CategoryImageController extends Controller
         $this->categoryImageRepository = $categoryImageRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $categoryImages = $this->categoryImageRepository->get([
-            'pagination' => 5
+            'order' => 'title asc',
+            'pagination' => 5,
+            'search' => [
+                'title' => $request->search_title
+            ]
         ]);
 
         return view('admin.categoryImage.index', [

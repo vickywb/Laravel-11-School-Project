@@ -16,11 +16,14 @@ class TeacherController extends Controller
         $this->teacherRepository = $teacherRepository;
     }
     
-    public function index()
+    public function index(Request $request)
     {
         $teachers = $this->teacherRepository->get([
             'order' => 'name ASC',
-            'pagination' => 4
+            'pagination' => 4,
+            'search' => [
+                'name' => $request->search_name
+            ]
         ]);
 
         $majors = Major::all();

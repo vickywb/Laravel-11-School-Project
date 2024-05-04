@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-12 d-flex flex-row-reverse mb-3">
                 <form class="teacher-search d-flex" role="Cari Nama Guru">
-                  <input class="form-control me-2" type="search" placeholder="Cari Nama Guru" aria-label="Cari Nama Guru">
+                  <input class="form-control me-2" type="search" placeholder="Cari Nama Guru" aria-label="Cari Nama Guru" name="search_name" value="{{ request('name') }}">
                   <button class="teacher-btn search rounded" type="submit">Cari</button>
                 </form>
             </div>

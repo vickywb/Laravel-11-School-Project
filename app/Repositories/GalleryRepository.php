@@ -17,14 +17,12 @@ class GalleryRepository
     {
         $galleries = $this->model
             ->when(!empty($params['order']), function ($query) use ($params) {
-                $query->orderByRaw($params['order']);
+                return $query->orderByRaw($params['order']);
             })
             ->when(!empty($params['search']['title']), function ($query) use ($params) {
-                $query->whereHas('categoryImage', function ($query) use ($params) {
-                    $query->where('title','like','%'. $params['search']['title'] .'%');
-                });
+                return $query->where('title','like','%'. $params['search']['title'] .'%');
             });
-        
+
         if (!empty($params['pagination'])) {
             return  $galleries->paginate($params['pagination'], ['*'], isset($params['pagination_name']) ? $params['pagination_name'] : 'page' );
         }
@@ -42,6 +40,4 @@ class GalleryRepository
 
         return $gallery;
     }
-
-
 }
