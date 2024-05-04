@@ -12,13 +12,13 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Ninestars</h3>
+          <div class="col-lg-3 col-md-6 footer-contact" style="font-family: sans-serif">
+            <h3>SMK 00</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
+              Jalan Jeruk no.00 <br>
+              Surabaya<br>
+              Indonesia<br><br>
+              <strong>Phone:</strong> +62 000 000 00<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
             <div class="social-links mt-3">
@@ -30,11 +30,12 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('visimisi') }}">Visi dan Misi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('guru') }}">Profile Guru</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('gallery') }}">Galeri Sekolah</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('form.pendaftaran') }}">Pendaftaran Murid Baru</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('berita') }}">Berita</a></li>
             </ul>
           </div>
 
