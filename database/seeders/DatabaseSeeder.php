@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
             FieldofWorkSeeder::class,
             LearnedMaterialSeeder::class,
             MissionSeeder::class,
-            VisionSeeder::class
+            VisionSeeder::class,
+            CategoryImageSeeder::class,
+            GallerySeeder::class
         ]);
     }
 }
