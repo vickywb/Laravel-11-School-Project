@@ -36,6 +36,11 @@ class File extends Model
     {
         return $this->hasMany(Teacher::class);
     }
+    
+    public function galleries()
+    {
+        return $this->hasMany(GalleryFile::class);
+    }
 
     protected function locationFile(): Attribute
     {
