@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
@@ -21,12 +20,12 @@ class Article extends Model
     ];
 
     //Relationship
-    public function category(): BelongsTo 
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function file(): BelongsTo
+    public function file()
     {
         return $this->belongsTo(File::class);
     }
