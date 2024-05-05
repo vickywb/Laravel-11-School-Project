@@ -21,9 +21,4 @@ class Category extends Model
     {
         return $this->hasMany(Article::class);
     }
-
-    // protected function articles(): HasMany
-    // {
-    //     return $this->hasMany(Article::class);
-    // }
 }
