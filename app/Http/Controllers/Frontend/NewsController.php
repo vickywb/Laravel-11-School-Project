@@ -8,18 +8,25 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Major;
 use App\Repositories\ArticleRepository;
+use App\Repositories\CategoryRepository;
 
 class NewsController extends Controller
 {
     private $articleRepository;
+    private $categoryRepository;
 
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(
+        ArticleRepository $articleRepository,
+        CategoryRepository $categoryRepository
+    )
     {
         $this->articleRepository = $articleRepository;
+        $this->categoryRepository = $categoryRepository;
     }
     
     public function index(Request $request)
     {
+        $majors = Major::all();
         $articles = $this->articleRepository->get([
             'order' => 'created_at DESC',
             'pagination' => 3,
@@ -27,8 +34,9 @@ class NewsController extends Controller
                 'title' => $request->search_title
             ]
         ]);
-        $majors = Major::all();
-        $categories = Category::all();
+        $categories = $this->categoryRepository->get([
+            'order' => 'id asc'
+        ]);
         
         return view('frontend.news.index', [
             'articles' => $articles,
@@ -37,25 +45,29 @@ class NewsController extends Controller
         ]);
     }
 
-    public function articleCategory($slug)
+    public function articleCategory(Request $request, $slug)
     {
         $majors = Major::all();
-        $categories = Category::all(); 
         $category = Category::where('slug', $slug)->first();
-
+        $categories = $this->categoryRepository->get([
+            'order' => 'id asc'
+        ]);
+     
         return vieW('frontend.news.show-category', [
             'category' => $category,
             'articles' => $category->articles,
             'majors' => $majors,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
     public function detailBerita(Article $article)
     {
-        $categories = Category::all(); 
         $majors = Major::all();
-
+        $categories = $this->categoryRepository->get([
+            'order' => 'id asc'
+        ]);
+        
         return view('frontend.news.show', [
             'article' => $article,
             'majors' => $majors,
