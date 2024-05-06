@@ -22,7 +22,7 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $students = $this->studentRepository->get([
-            'order' => 'name asc',
+            'order' => 'created_at desc',
             'search' => [
                 'name' => $request->search_name
             ],
