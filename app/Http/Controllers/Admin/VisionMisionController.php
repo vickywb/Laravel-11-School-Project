@@ -26,8 +26,13 @@ class VisionMisionController extends Controller
 
     public function index()
     {
-        $visions = $this->visionRepository->get();
-        $missions = $this->missionRepository->get();
+        $visions = $this->visionRepository->get([
+            'pagination' => 5
+        ]);
+        $missions = $this->missionRepository->get([
+            'order' => 'id ASC',
+            'pagination' => 5
+        ]);
 
         return view('admin.visimisi.index', [
             'visions' => $visions,
