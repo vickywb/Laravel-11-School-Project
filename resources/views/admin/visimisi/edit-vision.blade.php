@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Admin Dashboard - Vision Edit')
+@section('title', 'Admin Vision Dashboard - Vision Edit')
 @section('content')
 <div class="col-12 col-xl-9">
     <div class="nav">
@@ -27,6 +27,7 @@
             <div class="col-12 statistics-card">
                 <form action="{{ route('admin.vision.update', $vision) }}" method="post" >
                         @csrf
+                        @method('PATCH')
                         
                         <div class="form-group mb-3">
                             <label for="vision" class="mb-2">

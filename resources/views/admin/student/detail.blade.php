@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Admin Student Detail')
+@section('title', 'Admin Student Dashboard - Student Detail')
 @section('content')
 <div class="col-12 col-xl-9">
 

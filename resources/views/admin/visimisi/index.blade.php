@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Admin Teacher Dashboard')
+@section('title', 'Admin Vision and Mission Dashboard')
 @section('content')
 <div class="col-12 col-xl-9">
     <div class="nav">
@@ -81,6 +81,7 @@
                         </table>
                     </div>
                     <div class="col-6 d-flex justify-content-end">
+                        {{ $visions->links() }}
                     </div>
                 </div>
             </div>
@@ -145,6 +146,7 @@
                         </table>
                     </div>
                     <div class="col-6 d-flex justify-content-end">
+                        {{ $missions->links() }}
                     </div>
                 </div>
             </div>

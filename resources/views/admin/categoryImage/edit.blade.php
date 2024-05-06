@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Admin Dashboard - Category Image Edit')
+@section('title', 'Admin Category Image Dashboard - Category Image Edit')
 @section('content')
 <div class="col-12 col-xl-9">
     <div class="nav">

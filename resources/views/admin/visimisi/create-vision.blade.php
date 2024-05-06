@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Admin Dashboard - Vision Create')
+@section('title', 'Admin Vision Dashboard - Vision Create')
 @section('content')
 <div class="col-12 col-xl-9">
     <div class="nav">

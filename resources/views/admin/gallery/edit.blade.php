@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Admin Dashboard - Gallery Edit')
+@section('title', 'Admin Gallery Dashboard - Gallery Edit')
 @section('content')
 <div class="col-12 col-xl-9">
     <div class="nav">

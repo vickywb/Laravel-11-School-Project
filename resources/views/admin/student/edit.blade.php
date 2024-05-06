@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Admin Dashboard - Article Edit')
+@section('title', 'Admin Student Dashboard - Student Edit')
 @section('content')
 <div class="col-12 col-xl-9">
     <div class="nav">
@@ -10,7 +10,7 @@
                     <img src="{{ asset('backend/assets/img/global/burger.svg') }}" class="mb-2" alt="icon" />
                 </button>
                 <h2 class="nav-title">
-                    <a href="#">Article Form</a>
+                    <a href="#">Student Form</a>
                 </h2>
             </div>
         </div>
@@ -19,11 +19,11 @@
     <div class="content">
         <div class="row">
             <div class="col-12">
-                <h2 class="content-title mb-4">Form Article</h2>
+                <h2 class="content-title mb-4">Form Student</h2>
             </div>
 
             @include('components._messages')
-
+       
             <div class="col-12 statistics-card">
                 <form action="{{ route('admin.student.update', $student) }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -59,7 +59,7 @@
                                         Date of Birth
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="date" class="form-control" id="datetimepicker1" name="date_of_birth" value="{{ old('date_of_birth', $student->date_of_birth) }}" />
+                                    <input type="date" class="form-control" id="datetimepicker1" name="date_of_birth" value="{{ old('date_of_birth', $student->dob ) }}" />
                                 </div>
                             </div>
 
