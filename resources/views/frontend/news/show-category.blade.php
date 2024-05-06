@@ -45,9 +45,12 @@
         </div>
 
         <div class="col-md-4 col-md-offset">
-            <form action="#" method="post">
-                <input type="text" id="search" placeholder="Cari Berita.." class="form-control ds-input">
-            </form>
+            <div class="col-9 d-flex mb-3">
+                <form class="teacher-search d-flex" role="Cari Berita" action="{{ route('berita') }}" method="GET">
+                  <input class="form-control me-2" type="search" placeholder="Cari Berita" aria-label="Cari Berita" name="search_title" value="{{ request('title') }}">
+                  <button class="teacher-btn search rounded" type="submit">Cari</button>
+                </form>
+            </div>
             <div class="row">
                 <div class="card-title mt-3">
                     <h5>Kategori</h5>
