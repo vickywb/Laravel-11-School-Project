@@ -42,11 +42,11 @@
         </div>
 
         <div class="col-md-4 col-md-offset mt-4">
-            <form action="#" method="post">
-                <input type="text" id="search" placeholder="Cari Berita.." class="form-control ds-input">
+            <form action="" method="GET">
+                <input type="text" id="search" placeholder="Cari Berita.." class="form-control ds-input" name="search_title" value="{{ request('title') }}">
             </form>
             <div class="row">
-                <div class="card-title mt-3">
+                <div class="card-title mt-5">
                     <h5>Kategori</h5>
                     <hr>
                     @foreach ($categories as $category)
@@ -62,22 +62,6 @@
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-md-2">
-                <div class="article-gallery">
-                    <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="news-image" class="article-gallery-img">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="article-gallery">
-                    <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="news-image" class="article-gallery-img">
-                </div>
-            </div> <div class="col-md-2">
-                <div class="article-gallery">
-                    <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="news-image" class="article-gallery-img">
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 @endsection
