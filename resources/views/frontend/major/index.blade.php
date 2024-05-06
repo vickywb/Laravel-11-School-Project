@@ -21,7 +21,7 @@
         <div class="col-md-4">
             <div class="card-body">
                 <div class="row">
-                    <img src="{{ $major->file->showFile ?? asset('noimage/no-image.png') }}" alt="image-jurusan">
+                    <img src="{{ $major->file->showFile ?? asset('noimage/no-image.png') }}" alt="image-jurusan" class="major-image">
                 </div>
             </div>
         </div>
