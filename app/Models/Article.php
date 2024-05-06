@@ -50,17 +50,7 @@ class Article extends Model
             get: fn () => Storage::url($this->location_file)
         );
     }
-
-    protected function deleteFile(): Attribute
-    {
-        return new Attribute (
-            get: fn () => File::select('id', 'location')
-                ->doesntHave('articles')
-                ->doesntHave('majors')
-                ->doesntHave('teachers')->get()
-        );
-    }
-
+    
     protected function shortDescription(): Attribute
     {
         return new Attribute (
