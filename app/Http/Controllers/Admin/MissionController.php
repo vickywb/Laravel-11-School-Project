@@ -52,7 +52,7 @@ class MissionController extends Controller
 
     public function edit(Mission $mission)
     {
-        return view('admin.visimisi.edit-vision', [
+        return view('admin.visimisi.edit-mission', [
             'mission' => $mission
         ]);
     }
