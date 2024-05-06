@@ -37,6 +37,16 @@
                                 <tbody>
                                     <tr>
                                         <td width="35%">
+                                            <h6 class="card-subtitle text-muted">Student ID</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="card-subtitle text-muted">
+                                                : {{ date('Y') . 0 . 0 . 0 }}{{ $student->id }}
+                                            </h6>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="35%">
                                             <h6 class="card-subtitle text-muted">Nisn</h6>
                                         </td>
                                         <td>
