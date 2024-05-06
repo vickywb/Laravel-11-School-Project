@@ -23,4 +23,9 @@ class Student extends Model
             'date_of_birth' => 'datetime'
         ];
     }
+
+    public function getDobAttribute()
+    {
+        return $this->date_of_birth->format('Y-m-d');
+    }
 }
