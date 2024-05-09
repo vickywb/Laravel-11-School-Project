@@ -22,8 +22,9 @@
               <strong>Email:</strong> info@example.com<br>
             </p>
             <div class="social-links mt-3">
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
               <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
             </div>
           </div>
 
