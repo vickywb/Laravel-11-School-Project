@@ -5,17 +5,17 @@
           <div class="col-12">
               <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
-                    @foreach ($articles as $article)
+                    @foreach ($heroPages as $heroPage)
                     <div class="carousel-item active">
                         <img
-                            src="{{ $article->file->showFile ?? asset('frontend/img/team/team-1.jpg') }}"
+                            src="{{ $heroPage->file->showFile ?? asset('noimage/no-image.png') }}"
                             class="d-block w-100"
                             style="height: 564px"
                             alt="client-image"
                         />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                        <div class="carousel-caption d-none d-md-block" style="padding-bottom: 0px; color: black">
+                            <h2 style="font-size: 36px; color: black;"><b>{{ $heroPage->title ?? 'Nama Sekolah' }}</b></h2>
+                            <p style="font-size: 18px"><b>{!! $heroPage->description ?? 'alamat sekolah atau yang lainya' !!}</b></p>
                         </div>
                     </div>
                     @endforeach
