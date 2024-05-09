@@ -16,11 +16,6 @@ class File extends Model
     use HasFactory;
 
     protected $fillable = ['location'];
-    
-    // protected function articles(): HasMany
-    // {
-    //     return $this->hasMany(Article::class);
-    // }
 
     public function articles()
     {
@@ -40,6 +35,11 @@ class File extends Model
     public function galleryFiles()
     {
         return $this->hasMany(GalleryFile::class);
+    }
+
+    public function heroPages()
+    {
+        return $this->hasMany(HeroPage::class);
     }
 
     protected function locationFile(): Attribute
