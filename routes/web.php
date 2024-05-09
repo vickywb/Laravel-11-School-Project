@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
+use App\Http\Controllers\Admin\HeroPageController;
 use App\Http\Controllers\Admin\MajorController;
 use App\Http\Controllers\Admin\MissionController;
 use App\Http\Controllers\Admin\StudentController;
@@ -69,6 +70,15 @@ Route::prefix('admin')->middleware(['role:superadmin'])->group(function () {
     //Logout from admin dashboard
     Route::controller(AuthController::class)->group(function () {
         Route::get('logout', 'logout')->name('admin.logout');
+    });
+
+    Route::controller(HeroPageController::class)->group(function () {
+        Route::get('/hero-pages','index')->name('admin.heroPage.index');
+        Route::get('/hero-pages/create','create')->name('admin.heroPage.create');
+        Route::post('/hero-pages/store','store')->name('admin.heroPage.store');
+        Route::get('/hero-pages/edit/{heroPage}','edit')->name('admin.heroPage.edit');
+        Route::patch('/hero-pages/update/{heroPage}', 'update')->name('admin.heroPage.update');
+        Route::delete('/hero-pages/delete/{heroPage}', 'destroy')->name('admin.heroPage.delete');
     });
 
     //Student controller 
