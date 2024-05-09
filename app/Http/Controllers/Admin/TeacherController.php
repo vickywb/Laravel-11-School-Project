@@ -105,6 +105,7 @@ class TeacherController extends Controller
             ->doesntHave('majors')
             ->doesntHave('teachers')
             ->doesntHave('galleryFiles')
+            ->doesntHave('heroPages')
             ->get();
 
         if ($request->hasFile('file')) {

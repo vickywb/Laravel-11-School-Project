@@ -124,6 +124,7 @@ class ArticleController extends Controller
             ->doesntHave('majors')
             ->doesntHave('teachers')
             ->doesntHave('galleryFiles')
+            ->doesntHave('heroPages')
             ->get();
 
         $request->merge([

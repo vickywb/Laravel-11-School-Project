@@ -229,6 +229,7 @@ class GalleryController extends Controller
             ->doesntHave('majors')
             ->doesntHave('teachers')
             ->doesntHave('galleryFiles')
+            ->doesntHave('heroPages')
             ->get();
 
         try {
