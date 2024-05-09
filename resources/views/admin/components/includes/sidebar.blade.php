@@ -19,7 +19,12 @@
         </a>
 
         <h5 class="sidebar-title">Others</h5>
-        
+
+        <a href="{{ route('admin.heroPage.index') }}" class="sidebar-item {{ (request()->is('admin/hero-pages*')) ? 'active' : '' }}">
+            <img src="{{ asset('backend/assets/img/global/card-image.svg') }}" width="18" height="18" alt="icon" class="me-3" />
+            <span>Hero Pages</span>
+        </a>
+
         <a href="{{ route('admin.student.index') }}" class="sidebar-item {{ (request()->is('admin/students*')) ? 'active' : '' }}">
             <img src="{{ asset('backend/assets/img/global/people-fill.svg') }}" width="18" height="18" alt="icon" class="me-3" />
             <span>Students</span>
