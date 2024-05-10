@@ -29,27 +29,6 @@
                 </div>
             </div>
 
-            <div class="col-12 search-menu mb-4">
-                <form action="" method="GET">
-                    <div class="row d-flex">
-                        <div class="col-12 col-md-3 d-flex">
-                            <input
-                                type="text"
-                                class="form-control border-0 shadow-sm"
-                                name="search_title"
-                                value="{{ request('name') }}"
-                                placeholder="Search Name"
-                            />
-                        </div>
-                        <div class="col-12 col-md-2 d-grid d-md-flex mt-3 mt-md-0">
-                            <button class="btn btn-sm btn-warning">
-                                <img src="{{ asset('backend/assets/img/global/search.svg') }}" alt="icon" />
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
             <div class="col-12">
                 <div class="statistics-card">
                     <div class="table-responsive">
