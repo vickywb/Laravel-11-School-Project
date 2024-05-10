@@ -45,7 +45,7 @@
                                         Nisn
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" class="form-control" id="nisn" name="nisn" value="{{ old('nisn') }}" />
+                                    <input type="number" class="form-control" id="nisn" name="nisn" value="{{ old('nisn') }}" />
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                                         Phone Number
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" />
+                                    <input type="number" class="form-control" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" />
                                 </div>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                                         Phone Number Parents
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" class="form-control" id="phone_number_parent" name="phone_number_parent" value="{{ old('phone_number_parent') }}" />
+                                    <input type="number" class="form-control" id="phone_number_parent" name="phone_number_parent" value="{{ old('phone_number_parent') }}" />
                                 </div>
                             </div>
                         </div>
@@ -203,18 +203,5 @@
         </div>
     </div>
 </div>
-{{-- 
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker1').datepicker({
-            format: "mm/dd/yy",
-            weekStart: 0,
-            calendarWeeks: true,
-            autoclose: true,
-            todayHighlight: true, 
-            orientation: "auto"
-        });
-    });
-</script> --}}
 
 @endsection

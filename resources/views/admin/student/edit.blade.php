@@ -46,7 +46,7 @@
                                         Nisn
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" class="form-control" id="nisn" name="nisn" value="{{ old('nisn', $student->nisn) }}" />
+                                    <input type="number" class="form-control" id="nisn" name="nisn" value="{{ old('nisn', $student->nisn) }}" />
                                 </div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                                         Phone Number
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ old('phone_number', $student->phone_number) }}" />
+                                    <input type="number" class="form-control" id="phone_number" name="phone_number" value="{{ old('phone_number', $student->phone_number) }}" />
                                 </div>
                             </div>
                         </div>
@@ -190,7 +190,7 @@
                                         Phone Number Parents
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" class="form-control" id="phone_number_parent" name="phone_number_parent" value="{{ old('phone_number_parent', $student->phone_number_parent) }}" />
+                                    <input type="number" class="form-control" id="phone_number_parent" name="phone_number_parent" value="{{ old('phone_number_parent', $student->phone_number_parent) }}" />
                                 </div>
                             </div>
     
