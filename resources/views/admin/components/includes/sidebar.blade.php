@@ -68,10 +68,21 @@
             <img src="{{ asset('backend/assets/img/global/files.svg') }}" width="18" height="18" alt="icon" class="me-3" />
             <span>Galleries</span>
         </a>
+        
+        <a href="{{ route('admin.user.index') }}" class="sidebar-item {{ (request()->is('admin/users*')) ? 'active' : '' }}">
+            <img src="{{ asset('backend/assets/img/global/person-fill-gear.svg') }}" width="18" height="18" alt="icon" class="me-3" />
+            <span>Add New User</span>
+        </a>
+        
+        <a href="{{ route('admin.changePassword', auth()->user()->id) }}" class="sidebar-item {{ (request()->is('admin/change-passwords*')) ? 'active' : '' }}">
+            <img src="{{ asset('backend/assets/img/global/lock.svg') }}" width="18" height="18" alt="icon" class="me-3" />
+            <span>Change Password</span>
+        </a>
 
         <a href="{{ route('admin.logout') }}" class="sidebar-item">
             <img src="{{ asset('backend/assets/img/global/log-out.svg') }}" width="18" height="18" alt="icon" class="me-3" />
             <span>Logout</span>
         </a>
+
     </aside>
 </div>
