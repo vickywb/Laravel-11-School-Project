@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\MajorController;
 use App\Http\Controllers\Admin\MissionController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\TeacherController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VisionController;
 use App\Http\Controllers\Admin\VisionMisionController;
 use App\Http\Controllers\Frontend\GalleryController;
@@ -60,7 +61,7 @@ Route::controller( AuthController::class)->prefix('auth')->group(function () {
 });
 
 //Admin Dashboard 
-Route::prefix('admin')->middleware(['role:superadmin'])->group(function () {
+Route::prefix('admin')->middleware(['role:superadmin|admin|teacher'])->group(function () {
 
     //Dashboard admin
     Route::controller(DashboardController::class )->group(function () {
@@ -69,6 +70,11 @@ Route::prefix('admin')->middleware(['role:superadmin'])->group(function () {
     
     //Logout from admin dashboard
     Route::controller(AuthController::class)->group(function () {
+        //change password
+        Route::get('change-passwords', 'changePassword')->name('admin.changePassword');
+        Route::patch('change-passwords', 'doChangePassword')->name('admin.doChangePassword');
+
+        //logout
         Route::get('logout', 'logout')->name('admin.logout');
     });
 
@@ -184,6 +190,16 @@ Route::prefix('admin')->middleware(['role:superadmin'])->group(function () {
         Route::delete('/gallereis/delete/{gallery}', 'destroy')->name('admin.gallery.delete');
         Route::delete('/galleries/{gallery}/delete-image/{galleryFile}', 'deleteImage')->name('admin.gallery.deleteImage');
         Route::post('/galleries/{gallery}/store-image', 'storeImage')->name('admin.gallery.storeImage');
+    });
+
+    //Users
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/users', 'index')->name('admin.user.index');
+        Route::get('/users/create', 'create')->name('admin.user.create');
+        Route::post('/users/store', 'store')->name('admin.user.store');
+        Route::get('/users/edit/{user}', 'edit')->name('admin.user.edit');
+        Route::patch('/users/update/{user}',  'update')->name('admin.user.update');
+        Route::delete('/users/delete/{user}', 'destroy')->name('admin.user.delete');
     });
         
 });
