@@ -10,14 +10,23 @@ use App\Http\Controllers\Controller;
 use App\Repositories\CategoryRepository;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class CategoryController extends Controller
+class CategoryController extends Controller implements HasMiddleware
 {
     private $categoryRepository;
 
     public function __construct(CategoryRepository $categoryRepository)
     {
         $this->categoryRepository = $categoryRepository;
+    }
+    
+    public static function middleware(): array
+    {
+        return [
+             new Middleware('role:superadmin|admin', only: ['destroy']),
+        ];
     }
 
     public function index(Request $request)

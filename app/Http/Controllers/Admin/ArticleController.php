@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\UploadFile;
 use App\Models\File;
 use App\Models\Article;
 use App\Models\Category;
+use App\Helpers\UploadFile;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Repositories\FileRepository;
 use App\Repositories\ArticleRepository;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\Exists;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Http\Requests\ArticleUpdateRequest;
-use App\Repositories\FileRepository;
-use Illuminate\Validation\Rules\Exists;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class ArticleController extends Controller
+class ArticleController extends Controller implements HasMiddleware
 {
     private $articleRepository;
     private $fileRepository;
@@ -29,6 +31,13 @@ class ArticleController extends Controller
     {
         $this->articleRepository = $articleRepository;
         $this->fileRepository = $fileRepository;
+    }
+
+    public static function middleware(): array
+    {
+        return [
+             new Middleware('role:superadmin|admin', only: ['destroy']),
+        ];
     }
 
     public function index(Request $request)
@@ -192,17 +201,22 @@ class ArticleController extends Controller
         try {
             DB::beginTransaction();
 
-            //Check is file exist
-            if ($article->file_id) {
-                $oldFileName = $article->file->location;
-            }
+            //Check is file_id exist
+            if (!empty($article->file_id)) {
 
-            //Delete the existing file in the storage
-            if (isset($oldFileName)) {
-                Storage::delete($oldFileName);
-            }
+                //Check is file exist
+                if ($article->file_id) {
+                    $oldFileName = $article->file->location;
+                }
 
-            $file = File::find($article->file->id)->delete();
+                //Delete the existing file in the storage
+                if (isset($oldFileName)) {
+                    Storage::delete($oldFileName);
+                }
+
+                $file = File::find($article->file->id)->delete();
+            }
+         
             $article->delete();
 
             DB::commit();

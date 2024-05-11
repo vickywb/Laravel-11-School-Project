@@ -2,21 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Repositories\StudentRepository;
 use App\Http\Requests\StudentStoreRequest;
 use App\Http\Requests\StudentUpdateRequest;
-use App\Models\Student;
-use App\Repositories\StudentRepository;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class StudentController extends Controller
+class StudentController extends Controller implements HasMiddleware
 {
     private $studentRepository;
 
     public function __construct(StudentRepository $studentRepository)
     {
         $this->studentRepository = $studentRepository;
+    }
+
+    public static function middleware(): array
+    {
+        return [
+             new Middleware('role:superadmin|admin', only: ['create', 'destroy']),
+        ];
     }
 
     public function index(Request $request)

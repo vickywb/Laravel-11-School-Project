@@ -8,14 +8,23 @@ use App\Models\CategoryImage;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Repositories\CategoryImageRepository;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class CategoryImageController extends Controller
+class CategoryImageController extends Controller implements HasMiddleware
 {
     private $categoryImageRepository;
 
     public function __construct(CategoryImageRepository $categoryImageRepository)
     {
         $this->categoryImageRepository = $categoryImageRepository;
+    }
+    
+    public static function middleware(): array
+    {
+        return [
+             new Middleware('role:superadmin|admin', only: ['destroy']),
+        ];
     }
 
     public function index(Request $request)

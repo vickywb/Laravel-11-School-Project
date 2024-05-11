@@ -9,8 +9,10 @@ use App\Http\Controllers\Controller;
 use App\Repositories\MissionRepository;
 use App\Http\Requests\MissionStoreRequest;
 use App\Http\Requests\MissionUpdateRequest;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class MissionController extends Controller
+class MissionController extends Controller implements HasMiddleware
 {
     private $missionRepository;
 
@@ -24,6 +26,13 @@ class MissionController extends Controller
     public function create()
     {
         return view('admin.visimisi.create-mission');
+    }
+
+    public static function middleware(): array
+    {
+        return [
+             new Middleware('role:superadmin|admin', only: ['create','destroy']),
+        ];
     }
 
     public function store(MissionStoreRequest $request, Mission $mission)

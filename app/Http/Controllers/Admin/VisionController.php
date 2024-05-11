@@ -9,8 +9,10 @@ use App\Http\Controllers\Controller;
 use App\Repositories\VisionRepository;
 use App\Http\Requests\VisionStoreRequest;
 use App\Http\Requests\VisionUpdateRequest;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class VisionController extends Controller
+class VisionController extends Controller implements HasMiddleware
 {
     private $visionRepository;
     
@@ -19,6 +21,13 @@ class VisionController extends Controller
     )
     {
         $this->visionRepository = $visionRepository;
+    }
+
+    public static function middleware(): array
+    {
+        return [
+             new Middleware('role:superadmin|admin', only: ['create','destroy']),
+        ];
     }
 
     public function create()

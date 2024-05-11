@@ -12,8 +12,12 @@ use App\Http\Controllers\Controller;
 use App\Repositories\FileRepository;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\HeroPageRepository;
+use App\Http\Requests\HeroPageStoreRequest;
+use App\Http\Requests\HeroPageUpdateRequest;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class HeroPageController extends Controller
+class HeroPageController extends Controller implements HasMiddleware
 {
     private $heroPageRepository;
     private $fileRepository;
@@ -26,6 +30,13 @@ class HeroPageController extends Controller
     {
         $this->heroPageRepository = $heroPageRepository;
         $this->fileRepository = $fileRepository;
+    }
+    
+    public static function middleware(): array
+    {
+        return [
+             new Middleware('role:superadmin|admin', only: ['index']),
+        ];
     }
 
     public function index(Request $request)
@@ -47,7 +58,7 @@ class HeroPageController extends Controller
         ]);
     }
 
-    public function store(Request $request, HeroPage $heroPage)
+    public function store(HeroPageStoreRequest $request, HeroPage $heroPage)
     {
         if ($request->hasFile('file')) {
             $file = $request->file('file')->get();
@@ -98,7 +109,7 @@ class HeroPageController extends Controller
         ]);
     }
 
-    public function update(Request $request, HeroPage $heroPage)
+    public function update(HeroPageUpdateRequest $request, HeroPage $heroPage)
     {
         //Get File which not in relation
         $files = File::select('id', 'location')
@@ -170,17 +181,22 @@ class HeroPageController extends Controller
         try {
             DB::beginTransaction();
 
-            //Check is file exist
-            if ($heroPage->file_id) {
-                $oldFileName = $heroPage->file->location;
+            //Check is file_id exist
+            if (!empty($heroPage->file_id)) {
+
+                //Check is file exist
+                if ($heroPage->file_id) {
+                    $oldFileName = $heroPage->file->location;
+                }
+
+                //Delete the existing file in the storage
+                if (isset($oldFileName)) {
+                    Storage::delete($oldFileName);
+                }
+
+                $file = File::find($heroPage->file->id)->delete();
             }
 
-            //Delete the existing file in the storage
-            if (isset($oldFileName)) {
-                Storage::delete($oldFileName);
-            }
-
-            $file = File::find($heroPage->file->id)->delete();
             $heroPage->delete();
 
             DB::commit();
