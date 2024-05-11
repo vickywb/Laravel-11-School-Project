@@ -21,6 +21,7 @@ class RolePermissionSeeder extends Seeder
 
         Role::create(['name'=> 'superadmin']);
         Role::create(['name'=> 'admin']);
+        Role::create(['name'=> 'teacher']);
 
         $roleAdmin = Role::findByName('superadmin');
         $roleAdmin->givePermissionTo(Permission::all());
