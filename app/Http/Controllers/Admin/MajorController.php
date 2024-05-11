@@ -189,15 +189,22 @@ class MajorController extends Controller
         try {
             DB::beginTransaction();
 
-            if ($major->file_id) {
-                $oldFileName = $major->file->location;
-            }
+            //Check is file_id exist
+            if (!empty($major->file_id)) {
 
-            if (isset($oldFileName)) {
-                Storage::delete($oldFileName);
-            }
+                //Check is file exist
+                if ($major->file_id) {
+                    $oldFileName = $major->file->location;
+                }
 
-            $file = File::find($major->file->id)->delete();
+                //Delete the existing file in the storage
+                if (isset($oldFileName)) {
+                    Storage::delete($oldFileName);
+                }
+
+                $file = File::find($major->file->id)->delete();
+            }
+            
             $major->delete();
 
             DB::commit();

@@ -169,15 +169,22 @@ class TeacherController extends Controller
         try {
             DB::beginTransaction();
 
-            if ($teacher->file_id) {
-                $oldFileName = $teacher->file->location;
-            }
+            //Check is file_id exist
+            if (!empty($teacher->file_id)) {
 
-            if (isset($oldFileName)) {
-                Storage::delete($oldFileName);
-            }
+                //Check is file exist
+                if ($teacher->file_id) {
+                    $oldFileName = $teacher->file->location;
+                }
 
-            $file = File::find($teacher->file->id)->delete();
+                //Delete the existing file in the storage
+                if (isset($oldFileName)) {
+                    Storage::delete($oldFileName);
+                }
+
+                $file = File::find($teacher->file->id)->delete();
+            }
+            
             $teacher->delete();
 
             DB::commit();
