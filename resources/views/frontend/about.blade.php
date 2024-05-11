@@ -25,10 +25,10 @@
                             <h5 class="text-uppercase">{{ $article->title }}</h5>
                         </a>
                         <p style="font-size: 12px">Updated: {{ $article->created_at->diffForHumans() }}</p>
-                        <p class="mt-2">{!! Str::words($article->description, 20, '.') !!} <a href="#"><br>Read More..</a></p>
+                        <p class="mt-2">{!! Str::words($article->description, 20, '.') !!} <a href="{{ route('detail.berita', $article) }}"><br>Read More..</a></p>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <img src="{{ $article->file->showFile ?? asset('frontend/img/about-img.svg') }}" alt="new-article" width="100%">
+                        <img src="{{ $article->file->showFile ?? asset('frontend/img/about-img.svg') }}" alt="new-article" class="article-image">
                     </div>
                     @endforeach
                 </div>
