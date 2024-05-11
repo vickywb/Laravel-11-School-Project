@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
             MissionSeeder::class,
             VisionSeeder::class,
             CategoryImageSeeder::class,
-            GallerySeeder::class
+            GallerySeeder::class,
+            HeroPageSeeder::class
         ]);
     }
 }
