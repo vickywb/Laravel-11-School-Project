@@ -23,41 +23,44 @@ use App\Http\Controllers\Frontend\StudentRegisterController;
 use App\Http\Controllers\Frontend\TeacherController as FrontendTeacherController;
 use App\Http\Controllers\Frontend\VisiMisiController;
 
-Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('home');
-});
-
-Route::controller(StudentRegisterController::class)->group(function () {
-   Route::get('/pendaftaran-murid-baru', 'create')->name('form.pendaftaran');
-   Route::post('/pendaftaran-murid-baru/store', 'store')->name('pendaftaran.murid');
-});
-
-Route::controller(FrontendMajorController::class)->group(function () {
-    Route::get('/jurusan', 'index')->name('jurusan');
-    Route::get('/jurusan/{major}', 'show')->name('jurusan.sekolah');
-});
-
-Route::controller(NewsController::class)->group(function () {
-    Route::get('/semua-berita', 'index')->name('berita');
-    Route::get('/berita/kategori/{category}', 'articleCategory')->name('kategori.berita');
-    Route::get('/berita/{article}', 'detailBerita')->name('detail.berita');
-});
-
-Route::controller(FrontendTeacherController::class)->group(function () {
-    Route::get('/semua-guru', 'index')->name('guru');
-});
-
-Route::controller(VisiMisiController::class)->group(function () {
-    Route::get('/visi-dan-misi', 'index')->name('visimisi');
-});
-
-Route::controller(GalleryController::class)->group(function () {
-    Route::get('/semua-gallery', 'index')->name('gallery');
-});
-
-Route::controller( AuthController::class)->prefix('auth')->group(function () {
-    Route::get('/login', 'login')->name('login');
-    Route::post('/login', 'doLogin')->name('doLogin');
+Route::middleware('guest')->group(function () {
+    
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/', 'index')->name('home');
+    });
+    
+    Route::controller(StudentRegisterController::class)->group(function () {
+       Route::get('/pendaftaran-murid-baru', 'create')->name('form.pendaftaran');
+       Route::post('/pendaftaran-murid-baru/store', 'store')->name('pendaftaran.murid');
+    });
+    
+    Route::controller(FrontendMajorController::class)->group(function () {
+        Route::get('/jurusan', 'index')->name('jurusan');
+        Route::get('/jurusan/{major}', 'show')->name('jurusan.sekolah');
+    });
+    
+    Route::controller(NewsController::class)->group(function () {
+        Route::get('/semua-berita', 'index')->name('berita');
+        Route::get('/berita/kategori/{category}', 'articleCategory')->name('kategori.berita');
+        Route::get('/berita/{article}', 'detailBerita')->name('detail.berita');
+    });
+    
+    Route::controller(FrontendTeacherController::class)->group(function () {
+        Route::get('/semua-guru', 'index')->name('guru');
+    });
+    
+    Route::controller(VisiMisiController::class)->group(function () {
+        Route::get('/visi-dan-misi', 'index')->name('visimisi');
+    });
+    
+    Route::controller(GalleryController::class)->group(function () {
+        Route::get('/semua-gallery', 'index')->name('gallery');
+    });
+    
+    Route::controller( AuthController::class)->prefix('auth')->group(function () {
+        Route::get('/login', 'login')->name('login');
+        Route::post('/login', 'doLogin')->name('doLogin');
+    });
 });
 
 //Admin Dashboard 
