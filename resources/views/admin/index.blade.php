@@ -22,20 +22,11 @@
             </button>
 
         </div>
-
-        <div class="d-flex justify-content-between align-items-center nav-input-container">
-            
-            <div class="nav-input-group">
-                <input type="text" class="nav-input" placeholder="Search people, team, project" />
-                <button class="btn-nav-input"><img src="{{ asset('backend/assets/img/global/search.svg') }}" alt="" /></button>
-            </div>
-
-            <button class="btn-notif d-none d-md-block">
-                <img src="{{ asset('backend/assets/img/global/bell.svg') }}" alt="" />
-            </button>
-
+    
+        <div class="nav-input-group">
+          <span><img src="{{ asset('backend/assets/img/global/person-circle.svg') }}"> Welcome, {{ Auth::user()->name }} !</span>
         </div>
-        
+
     </div>
 
     <div class="content">
