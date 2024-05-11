@@ -26,6 +26,9 @@ class RolePermissionSeeder extends Seeder
         $roleAdmin->givePermissionTo(Permission::all());
 
         $roleEditor = Role::findByName('admin');
+        $roleAdmin->givePermissionTo(Permission::all());
+        
+        $roleEditor = Role::findByName('teacher');
         $roleEditor->givePermissionTo('edit');
         $roleEditor->givePermissionTo('show');
     }
