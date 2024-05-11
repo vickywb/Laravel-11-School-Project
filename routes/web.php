@@ -24,7 +24,7 @@ use App\Http\Controllers\Frontend\TeacherController as FrontendTeacherController
 use App\Http\Controllers\Frontend\VisiMisiController;
 
 Route::middleware('guest')->group(function () {
-    
+
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'index')->name('home');
     });
@@ -54,7 +54,7 @@ Route::middleware('guest')->group(function () {
     });
     
     Route::controller(GalleryController::class)->group(function () {
-        Route::get('/semua-gallery', 'index')->name('gallery');
+        Route::get('/semua-galeri', 'index')->name('gallery');
     });
     
     Route::controller( AuthController::class)->prefix('auth')->group(function () {
