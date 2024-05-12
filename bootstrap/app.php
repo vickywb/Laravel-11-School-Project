@@ -16,11 +16,18 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        //Middleware Role Spatie
         $middleware->alias([
            'role' => RoleMiddleware::class,
            'permission' => PermissionMiddleware::class,
            'role_or_permission' => RoleOrPermissionMiddleware::class,
         ]);
+
+        //Middleware guests and users
+        $middleware->redirectTo(
+            guests: '/',
+            users: '/admin'
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
