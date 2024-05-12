@@ -46,7 +46,7 @@
                                    <tr>
                                     <td>{{ Str::ucfirst($heroPage->title) }}</td>
                                     <td>{!! Str::words($heroPage->description, 20, '...') !!}</td>
-                                    <td><img src="{{ $heroPage->file->showFile ?? asset('backend/assets/img/employees/photo-1.png') }}" alt="article-image" width="50px" height="50px"></td>
+                                    <td><img src="{{ $heroPage->file->showFile ?? asset('noimage/no-image.png') }}" alt="article-image" width="50px" height="50px"></td>
                                     <td width="10%">
                                         <div class="dropdown">
                                             <button

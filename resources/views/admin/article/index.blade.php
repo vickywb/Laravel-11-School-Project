@@ -69,7 +69,7 @@
                                     <td>{{ Str::ucfirst($article->title) }}</td>
                                     <td>{{ Str::ucfirst($article->category->title) }}</td>
                                     <td>{!! Str::words($article->description, 20, '...') !!}</td>
-                                    <td><img src="{{ $article->file->showFile ?? asset('backend/assets/img/employees/photo-1.png') }}" alt="article-image" width="50px" height="50px"></td>
+                                    <td><img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="article-image" width="50px" height="50px"></td>
                                     <td width="10%">
                                         <div class="dropdown">
                                             <button
