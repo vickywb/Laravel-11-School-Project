@@ -23,8 +23,7 @@ use App\Http\Controllers\Frontend\StudentRegisterController;
 use App\Http\Controllers\Frontend\TeacherController as FrontendTeacherController;
 use App\Http\Controllers\Frontend\VisiMisiController;
 
-Route::middleware('guest')->group(function () {
-
+    //User Interface
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'index')->name('home');
     });
@@ -57,6 +56,8 @@ Route::middleware('guest')->group(function () {
         Route::get('/semua-galeri', 'index')->name('gallery');
     });
     
+Route::middleware('guest')->group(function () {
+    //Login Form
     Route::controller( AuthController::class)->prefix('auth')->group(function () {
         Route::get('/login', 'login')->name('login');
         Route::post('/login', 'doLogin')->name('doLogin');
