@@ -28,13 +28,13 @@
             @foreach ($teachers as $teacher)
                 <div class="col-md-3">
                     <div class="teacher-team">
-                        <div class="teachcer-area">
-                            <a href="#img{{ $teacher->file->id ?? asset('noimage/no-image.png') }}">
+                        <div class="teachcer-area" id="img">
+                            <a href="#img{{ $teacher->file->id ?? null }}">
                                 <img src="{{ $teacher->file->showFile ?? asset('noimage/no-image.png') }}" alt="teacher-img" class="teacher-img">
                             </a>
                             
                             <!-- lightbox container hidden with CSS -->
-                            <a href="#close-image" class="lightbox" id="img{{ $teacher->file->id ?? asset('noimage/no-image.png') }}">
+                            <a href="#close-image" class="lightbox" id="img{{ $teacher->file->id ?? null }}">
                                 <span style="background-image: url({{ $teacher->file->showFile ?? asset('noimage/no-image.png') }}"></span>
                             </a>
                             <div class="teacher-title text-center">

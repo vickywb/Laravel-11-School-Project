@@ -23,21 +23,20 @@
             <div class="article">
                 <div class="article-single-content">
 
-                    <div class="card-title" style="font-size: 36px"><b>{{ $article->title }}</b></div>
+                    <div class="card-title" style="font-size: 36px" id="img"><b>{{ $article->title }}</b></div>
                     <div class="article-text-muted">
                         <span>Berita ini dibuat : {{ $article->created_at->diffForHumans() }}</span>
                     </div>
 
                     <div class="mt-3">
-                        <a href="#img{{ $article->file->id ?? asset('noimage/no-image.png') }}">
+                        <a href="#img{{ $article->file->id ?? null }}">
                             <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="news-image" style="object-fit: cover; width:100%; height:auto;">
                         </a>
                         
                         <!-- lightbox container hidden with CSS -->
-                        <a href="#close-image" class="lightbox" id="img{{ $article->file->id ?? asset('noimage/no-image.png') }}">
+                        <a href="#close-image" class="lightbox" id="img{{ $article->file->id ?? null }}">
                             <span style="background-image: url({{ $article->file->showFile ?? asset('noimage/no-image.png') }}"></span>
                         </a>
-                        {{-- <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="news-image" style="object-fit: cover; width:100%; height:auto;"> --}}
                     </div>
                   
                 </div>
