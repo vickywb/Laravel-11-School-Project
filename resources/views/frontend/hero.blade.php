@@ -15,8 +15,8 @@
                                 alt="hero-page-image"
                             />
                             <div class="carousel-caption d-md-block" style="padding-bottom: 0px; color: black">
-                                <h2 style="font-size: 36px; color: black;"><b>{{ $heroPage->title ?? 'Nama Sekolah' }}</b></h2>
-                                <p style="font-size: 18px"><b>{!! $heroPage->description ?? 'alamat sekolah atau yang lainya' !!}</b></p>
+                                <h2 style="font-size: 36px; color: black;"><b>{{ $heroPage->title ?? null }}</b></h2>
+                                <p style="font-size: 18px"><b>{!! $heroPage->description ?? null !!}</b></p>
                             </div>
                         </div>
                     @endforeach
