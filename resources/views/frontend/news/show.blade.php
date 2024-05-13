@@ -29,7 +29,15 @@
                     </div>
 
                     <div class="mt-3">
-                        <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="news-image" style="object-fit: cover; width:100%; height:auto;">
+                        <a href="#img{{ $article->file->id ?? asset('noimage/no-image.png') }}">
+                            <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="news-image" style="object-fit: cover; width:100%; height:auto;">
+                        </a>
+                        
+                        <!-- lightbox container hidden with CSS -->
+                        <a href="#close-image" class="lightbox" id="img{{ $article->file->id ?? asset('noimage/no-image.png') }}">
+                            <span style="background-image: url({{ $article->file->showFile ?? asset('noimage/no-image.png') }}"></span>
+                        </a>
+                        {{-- <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="news-image" style="object-fit: cover; width:100%; height:auto;"> --}}
                     </div>
                   
                 </div>

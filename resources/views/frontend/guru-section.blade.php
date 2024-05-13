@@ -3,7 +3,7 @@
     <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-            <h3 class="mb-3" style="font-weight: 700; font-size: 34px; color: #4e4039;" data-aos="fade-up">Profile Guru</h3>
+            <h3 class="mb-3" style="font-weight: 700; font-size: 34px; color: #4e4039;" data-aos="fade-up" id="#profile-guru">Profile Guru</h3>
         </div>
 
         <div class="row">
@@ -21,11 +21,20 @@
                 <div class="col-md-3">
                     <div class="teacher-team">
                         <div class="teachcer-area">
-                            <img src="{{ $teacher->file->showFile ?? asset('noimage/no-image.png') }}" alt="teacher-img" class="teacher-img">
+                      
+                            <a href="#img{{ $teacher->file->id ?? asset('noimage/no-image.png') }}">
+                                <img src="{{ $teacher->file->showFile ?? asset('noimage/no-image.png') }}" alt="teacher-img" class="teacher-img">
+                            </a>
+                            
+                            <!-- lightbox container hidden with CSS -->
+                            <a href="#profile-guru" class="lightbox" id="img{{ $teacher->file->id ?? asset('noimage/no-image.png') }}">
+                                <span style="background-image: url({{ $teacher->file->showFile ?? asset('noimage/no-image.png') }}"></span>
+                            </a>
                             <div class="teacher-title text-center">
                                 <p class="mt-2">{{ $teacher->name }}</p>
                                 <span>{{ $teacher->field_of_study }}</span>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

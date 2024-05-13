@@ -30,7 +30,16 @@
                 
             <div class="col-md-3">
                 <div class="gallery-area">
-                    <img src="{{ $image->file->showFile ?? asset('noimage/no-image.png') }}" alt="gallery-img" class="gallery-img">
+
+                    <a href="#img{{ $image->file->id ?? asset('noimage/no-image.png') }}">
+                        <img src="{{ $image->file->showFile ?? asset('noimage/no-image.png') }}" alt="gallery-img" class="gallery-img">
+                    </a>
+                    
+                    <!-- lightbox container hidden with CSS -->
+                    <a href="#close-image" class="lightbox" id="img{{ $image->file->id ?? asset('noimage/no-image.png') }}">
+                        <span style="background-image: url({{ $image->file->showFile ?? asset('noimage/no-image.png') }}"></span>
+                    </a>
+
                     <div class="gallery-title text-center">
                         <p class="mt-3 mb-2">{{ $image->gallery->title }}</p>
                         <span style="font-size: 14px">{{ $image->gallery->categoryImage->title }}</span>
