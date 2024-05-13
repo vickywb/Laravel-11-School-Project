@@ -16,7 +16,7 @@
 
             <div class="col-md-6" style="padding-left: 30px">
                 <div class="section-title" data-aos="fade-up">
-                    <h3 class="mb-3" data-aos="fade-up" id="#berita-terbaru">Berita Terbaru</h3>
+                    <h3 class="mb-3" data-aos="fade-up">Berita Terbaru</h3>
                 </div>
                 <div class="row">
                     @foreach ($articles as $article)
@@ -28,15 +28,8 @@
                         <p class="mt-2">{!! Str::words($article->description, 20, '.') !!} <a href="{{ route('detail.berita', $article) }}"><br>Read More..</a></p>
                     </div>
              
-                    <div class="col-md-6 mb-3" id="img" class="lightbox">
-                        <a href="#img{{ $article->file->id ?? asset('noimage/no-image.png')}}">
-                            <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="new-article" class="article-image">
-                        </a>
-                        
-                        <!-- lightbox container hidden with CSS -->
-                        <a href="#berita-terbaru" class="lightbox" id="img{{ $article->file->id ?? asset('noimage/no-image.png') }}">
-                            <span style="background-image: url({{ $article->file->showFile ?? asset('noimage/no-image.png') }})"></span>
-                        </a>
+                    <div class="col-md-6 mb-3">
+                        <img src="{{ $article->file->showFile ?? asset('noimage/no-image.png') }}" alt="new-article" class="article-image">
                     </div> 
                     
                     @endforeach
