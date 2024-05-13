@@ -23,7 +23,7 @@ class ArticleStoreRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'file' => 'nullable|mimes:jpg,png,jpeg|max:2048',
+            'file' => 'required|mimes:jpg,png,jpeg|max:2048',
             'category_id' => 'required',
             'description' => 'required|string'
         ];

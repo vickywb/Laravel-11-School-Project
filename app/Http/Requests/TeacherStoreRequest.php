@@ -22,7 +22,7 @@ class TeacherStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => 'nullable|mimes:png,jpg,jpeg|max:2048', 
+            'file' => 'required|mimes:png,jpg,jpeg|max:2048', 
             'name' => 'required|string', 
             'field_of_study' => 'required|string', 
             'address' => 'required|string', 
