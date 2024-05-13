@@ -45,7 +45,7 @@
                                 <div class="form-group mb-3">
                                     <label for="category" class="mb-2"> Category </label>
                                     <select name="category_image_id" id="category_image_id" class="form-select">
-                                       <option selected>Open this select menu</option>
+                                       <option selected disabled>Open this select menu</option>
                                        @foreach ($categoryImages as $categoryImage)
                                         <option value="{{ $categoryImage->id }}"
                                         @if (old('category_image_id') == $categoryImage->id || $categoryImage->id == $gallery->category_image_id)
