@@ -20,7 +20,7 @@ class TeacherController extends Controller
     {
         $teachers = $this->teacherRepository->get([
             'order' => 'name ASC',
-            'pagination' => 4,
+            'pagination' => 12,
             'search' => [
                 'name' => $request->search_name
             ]
