@@ -42,7 +42,7 @@
                                 <div class="form-group mb-3">
                                     <label for="category" class="mb-2"> Category </label>
                                     <select name="category_id" id="category_id" class="form-select">
-                                       <option selected>Open this select menu</option>
+                                       <option selected disabled>Open this select menu</option>
                                        @foreach ($categories as $category)
                                         <option value="{{ $category->id }}"
                                         @if (old('category_id') == $category->id)
